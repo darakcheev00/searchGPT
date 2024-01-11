@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     var on_off_button = document.getElementById('on_off_button');
     const isactive_data = await chrome.storage.local.get('activeState');
-    on_off_button.textContent = isactive_data.activeState ? 'On' : 'Off';
+    on_off_button.textContent = isactive_data.activeState ? 'Active now!' : 'Inactive';
 
 
     on_off_button.addEventListener('click', async()=>{
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (data.activeState !== undefined){
             newState = !data.activeState;
         }
-        on_off_button.textContent = newState ? 'On' : 'Off';
+        on_off_button.textContent = newState ? 'Active now!' : 'Inactive';
         await chrome.storage.local.set({activeState: newState});
     });
 
