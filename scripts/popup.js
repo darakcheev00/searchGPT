@@ -34,6 +34,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     // document.getElementById('apiKey').value = censorKey(apiKey);
     document.getElementById('apiKey').value = apiKey;
 
+    var on_off_button = document.getElementById('on_off_button');
+    const isactive_data = await chrome.storage.local.get('activeState');
+    on_off_button.textContent = isactive_data.activeState ? 'On' : 'Off';
+
+
+    on_off_button.addEventListener('click', async()=>{
+        const data = await chrome.storage.local.get('activeState');
+        var newState = true;
+        if (data.activeState !== undefined){
+            newState = !data.activeState;
+        }
+        on_off_button.textContent = newState ? 'On' : 'Off';
+        await chrome.storage.local.set({activeState: newState});
+    });
+
     var saveButton = document.getElementById('saveButton');
     
     saveButton.addEventListener('click', function() {

@@ -444,7 +444,6 @@ function openAiError(){
 
 (async() => {
     
-
     console.log("searchAI Start");
 
     // const answersList = await getAnswersList();
@@ -462,13 +461,15 @@ function openAiError(){
     const searchBox = document.querySelector("textarea");
     // console.log("SearchGPT Start");`
 
-    if (searchBox) {
+    const data = await chrome.storage.local.get('activeState');
+    const active = data.activeState;
+    console.log(`Active: ${active}`);
+
+    if (searchBox && active) {
         const elem = await createHTMLElem("");
         
         const text = searchBox.textContent;
         const answerBox = document.getElementById("AnswerBox");
-
-
         
         answerBox.innerText = "Generating..."
 

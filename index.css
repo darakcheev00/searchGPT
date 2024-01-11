@@ -100,7 +100,8 @@ p {
 
 #leftButton,
 #middleButton,
-#rightButton {
+#rightButton,
+#on_off_button {
     margin-left: 5px;
     padding: 0px;
     border-radius: 12px 0 0 12px;
@@ -111,6 +112,13 @@ p {
     display: inline-block; /* Ensure buttons are inline */
     line-height: 36px; /* Set line height equal to button height for vertical centering */
     vertical-align: middle;
+}
+
+#on_off_button {
+    align-items: center;
+    font-size: 14px;
+    border-radius: 12px 12px 12px 12px;
+    margin-top: 15px;
 }
 
 #middleButton {
