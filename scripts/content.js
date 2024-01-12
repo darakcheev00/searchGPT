@@ -462,7 +462,7 @@ function openAiError(){
     // console.log("SearchGPT Start");`
 
     const data = await chrome.storage.local.get('activeState');
-    const active = data.activeState;
+    const active = data.activeState ? data.activeState : true;
     console.log(`Active: ${active}`);
 
     if (searchBox && active) {
